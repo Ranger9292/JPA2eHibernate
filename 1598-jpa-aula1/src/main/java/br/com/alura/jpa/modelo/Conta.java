@@ -1,9 +1,13 @@
 package br.com.alura.jpa.modelo;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Conta {
@@ -14,7 +18,9 @@ public class Conta {
 	private Integer agencia;
 	private Integer numero;
 	private Double saldo;
-	
+	@OneToMany(mappedBy = "conta", fetch = FetchType.EAGER)
+	private ArrayList<Movimentacao> movimentacoes;
+
 	public Double getSaldo() {
 		return saldo;
 	}
@@ -53,6 +59,10 @@ public class Conta {
 
 	public void setNumero(Integer numero) {
 		this.numero = numero;
+	}
+
+	public ArrayList<Movimentacao> getMovimentacoes() {
+		return movimentacoes;
 	}
 
 }

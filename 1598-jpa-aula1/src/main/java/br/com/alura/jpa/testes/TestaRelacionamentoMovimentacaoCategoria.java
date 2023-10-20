@@ -33,7 +33,7 @@ public class TestaRelacionamentoMovimentacaoCategoria {
 		Movimentacao movimentacao2 = new Movimentacao();
 		movimentacao2.setDescricao("Viagem à RJ");
 		movimentacao2.setTipoMovimentacao(TipoMovimentacao.SAIDA);
-		movimentacao2.setData(LocalDateTime.now());
+		movimentacao2.setData(LocalDateTime.now().plusDays(1));
 		movimentacao2.setValor(new BigDecimal(400.0));
 		movimentacao2.setCategorias(Arrays.asList(categoria, categoria2));
 		movimentacao2.setConta(conta);

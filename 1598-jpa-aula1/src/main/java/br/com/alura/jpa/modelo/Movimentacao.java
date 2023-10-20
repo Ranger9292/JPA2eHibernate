@@ -2,6 +2,7 @@ package br.com.alura.jpa.modelo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,30 +11,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
-import org.hibernate.mapping.List;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Movimentacao {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Enumerated(EnumType.STRING)
 	private TipoMovimentacao tipoMovimentacao;
-	
+
 	private LocalDateTime data;
 	private String descricao;
 	private BigDecimal valor;
-	
-	@ManytoMany
-	private List categorias;
-	
+
+	@OneToMany
+	private ArrayList<Categoria> categorias = new ArrayList<>();
+
 	@ManyToOne
 	private Conta conta;
+
 	
-		
 	public Conta getConta() {
 		return conta;
 	}
@@ -81,16 +81,5 @@ public class Movimentacao {
 	public void setConta(Conta conta) {
 		this.conta = conta;
 	}
-
-	public void setCategorias(java.util.List<Categoria> asList) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public String getCategoria() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 
 }

@@ -21,8 +21,7 @@ public class Categoria {
 	
 	@Deprecated
 	public Categoria() {
-		
-	}
+			}
 	
 	public Categoria(String nome) {
 		super();
