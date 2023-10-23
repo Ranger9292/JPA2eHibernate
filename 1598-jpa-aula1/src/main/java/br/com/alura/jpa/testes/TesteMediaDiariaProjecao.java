@@ -5,10 +5,17 @@ import java.util.List;
 import br.com.alura.jpa.dao.MovimentacaoDao;
 import br.com.alura.jpa.modelo.MediaComData;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 public class TesteMediaDiariaProjecao {
 	public static void main(String[] args) {
 
-		List<MediaComData> mediaDasMovimentacoes = new MovimentacaoDao().getMediaDiariaDasMovimentacoes();
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("alura");
+		EntityManager em = emf.createEntityManager();
+
+		List<MediaComData> mediaDasMovimentacoes = new MovimentacaoDao(em).getMediaDiariaDasMovimentacoes();
 		
 		for (MediaComData resultado : mediaDasMovimentacoes) {
 

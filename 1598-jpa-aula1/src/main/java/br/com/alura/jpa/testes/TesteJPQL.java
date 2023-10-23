@@ -5,10 +5,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import org.hibernate.mapping.List;
-
 import br.com.alura.jpa.modelo.Conta;
 import br.com.alura.jpa.modelo.Movimentacao;
+
+import java.util.List;
 
 public class TesteJPQL {
 	public static void main(String[] args) {

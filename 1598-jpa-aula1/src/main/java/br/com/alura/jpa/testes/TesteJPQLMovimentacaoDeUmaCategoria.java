@@ -5,10 +5,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import org.hibernate.mapping.List;
-
 import br.com.alura.jpa.modelo.Categoria;
 import br.com.alura.jpa.modelo.Movimentacao;
+
+import java.util.List;
 
 public class TesteJPQLMovimentacaoDeUmaCategoria {
 	public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class TesteJPQLMovimentacaoDeUmaCategoria {
 		List<Movimentacao> resultList = query.getResultList();
 
 		for (Movimentacao movimentacao : resultList) {
-			System.out.println("Categoria: " + movimentacao.getCategoria());
+			System.out.println("Categoria: " + movimentacao.getCategorias());
 			System.out.println("Descrição: " + movimentacao.getDescricao());
 			System.out.println("Tipo: " + movimentacao.getTipoMovimentacao());
 			System.out.println("Valor: " + movimentacao.getValor());
